@@ -1,0 +1,252 @@
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import {
+  Star,
+  Heart,
+  ShoppingBag,
+  Truck,
+  RefreshCw,
+  Shield,
+  Plus,
+  Minus,
+} from "lucide-react";
+
+const ProductDetail = () => {
+  const { id } = useParams();
+  const [selectedSize, setSelectedSize] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  // Mock product data - in real app, this would come from an API
+  const product = {
+    id: 1,
+    name: "Air Max 270",
+    price: "$150",
+    originalPrice: "$180",
+    description:
+      "The Nike Air Max 270 delivers visible Air cushioning underfoot with a sleek, modern design. Inspired by the first Air Max shoe, it features the tallest Air unit yet for all-day comfort.",
+    images: [
+      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=800",
+    ],
+    colors: ["Black", "White", "Red"],
+    sizes: ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11"],
+    rating: 4.5,
+    reviews: 127,
+    features: [
+      "Max Air cushioning for superior comfort",
+      "Mesh upper for breathability",
+      "Durable rubber outsole",
+      "Iconic Air Max design",
+    ],
+    specifications: {
+      "Upper Material": "Mesh and synthetic leather",
+      "Sole Material": "Rubber",
+      Weight: "10.2 oz",
+      Drop: "10mm",
+    },
+  };
+
+  const handleQuantityChange = (action) => {
+    if (action === "increment") {
+      setQuantity((prev) => prev + 1);
+    } else if (action === "decrement" && quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Product Images */}
+          <div className="space-y-4">
+            <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+              <img
+                src={product.images[selectedImage]}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="flex space-x-4">
+              {product.images.map((image, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedImage(index)}
+                  className={`w-20 h-20 bg-gray-100 rounded-lg overflow-hidden border-2 ${
+                    selectedImage === index
+                      ? "border-black"
+                      : "border-transparent"
+                  }`}
+                >
+                  <img
+                    src={image}
+                    alt={`${product.name} ${index + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Product Details */}
+          <div className="space-y-6">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                {product.name}
+              </h1>
+              <p className="text-gray-600">Men's Shoes</p>
+            </div>
+
+            {/* Rating */}
+            <div className="flex items-center">
+              <div className="flex text-yellow-400">
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    className={`w-5 h-5 ${
+                      i < Math.floor(product.rating) ? "fill-current" : ""
+                    }`}
+                  />
+                ))}
+              </div>
+              <span className="text-sm text-gray-500 ml-2">
+                ({product.reviews} reviews)
+              </span>
+            </div>
+
+            {/* Price */}
+            <div className="flex items-center space-x-4">
+              <span className="text-3xl font-bold text-gray-900">
+                {product.price}
+              </span>
+              {product.originalPrice && (
+                <span className="text-xl text-gray-500 line-through">
+                  {product.originalPrice}
+                </span>
+              )}
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-700 text-lg">{product.description}</p>
+
+            {/* Size Selection */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Size</h3>
+              <div className="grid grid-cols-5 gap-2">
+                {product.sizes.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`py-3 px-4 border rounded-lg text-center transition-colors ${
+                      selectedSize === size
+                        ? "border-black bg-black text-white"
+                        : "border-gray-300 hover:border-gray-400"
+                    }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Quantity */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Quantity
+              </h3>
+              <div className="flex items-center space-x-4">
+                <button
+                  onClick={() => handleQuantityChange("decrement")}
+                  className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                >
+                  <Minus className="w-4 h-4" />
+                </button>
+                <span className="text-lg font-semibold">{quantity}</span>
+                <button
+                  onClick={() => handleQuantityChange("increment")}
+                  className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                >
+                  <Plus className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="space-y-4">
+              <button
+                className="w-full bg-black text-white py-4 px-6 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center"
+                disabled={!selectedSize}
+              >
+                <ShoppingBag className="w-5 h-5 mr-2" />
+                Add to Cart
+              </button>
+
+              <button className="w-full border border-gray-300 py-4 px-6 rounded-full font-semibold hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center">
+                <Heart className="w-5 h-5 mr-2" />
+                Add to Wishlist
+              </button>
+            </div>
+
+            {/* Features */}
+            <div className="border-t pt-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Features
+              </h3>
+              <ul className="space-y-2">
+                {product.features.map((feature, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="w-2 h-2 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span className="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Shipping Info */}
+            <div className="border-t pt-6">
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <Truck className="w-5 h-5 text-gray-600 mr-3" />
+                  <span className="text-gray-700">
+                    Free shipping on orders over $50
+                  </span>
+                </div>
+                <div className="flex items-center">
+                  <RefreshCw className="w-5 h-5 text-gray-600 mr-3" />
+                  <span className="text-gray-700">30-day return policy</span>
+                </div>
+                <div className="flex items-center">
+                  <Shield className="w-5 h-5 text-gray-600 mr-3" />
+                  <span className="text-gray-700">1-year warranty</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Product Specifications */}
+        <div className="mt-16 border-t pt-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">
+            Specifications
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {Object.entries(product.specifications).map(([key, value]) => (
+              <div
+                key={key}
+                className="flex justify-between py-2 border-b border-gray-200"
+              >
+                <span className="font-medium text-gray-900">{key}:</span>
+                <span className="text-gray-700">{value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductDetail;
