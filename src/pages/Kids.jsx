@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
 
 const Kids = () => {
+  // State for view mode and selected subcategory
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
 
