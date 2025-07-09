@@ -1,87 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
+import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
 
 const Women = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
 
-  const womenProducts = [
-    {
-      id: 7,
-      name: "Air Max 97",
-      price: "$170",
-      originalPrice: "$200",
-      image:
-        "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "shoes",
-      rating: 4.7,
-      reviews: 189,
-      colors: ["white", "pink", "silver"],
-      sale: true,
-    },
-    {
-      id: 8,
-      name: "React Infinity Run",
-      price: "$160",
-      image:
-        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "shoes",
-      rating: 4.6,
-      reviews: 234,
-      colors: ["pink", "white", "purple"],
-      sale: false,
-    },
-    {
-      id: 9,
-      name: "Yoga Luxe Crop Top",
-      price: "$55",
-      image:
-        "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.8,
-      reviews: 156,
-      colors: ["black", "white", "pink"],
-      sale: false,
-    },
-    {
-      id: 10,
-      name: "Pro Sports Bra",
-      price: "$40",
-      originalPrice: "$50",
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.5,
-      reviews: 203,
-      colors: ["black", "white", "pink"],
-      sale: true,
-    },
-    {
-      id: 11,
-      name: "Dri-FIT Leggings",
-      price: "$65",
-      image:
-        "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.9,
-      reviews: 312,
-      colors: ["black", "gray", "navy"],
-      sale: false,
-    },
-    {
-      id: 12,
-      name: "Training Headband",
-      price: "$18",
-      image:
-        "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "accessories",
-      rating: 4.3,
-      reviews: 89,
-      colors: ["black", "white", "pink"],
-      sale: false,
-    },
-  ];
+  const womenProducts = getProductsByCategory("women"); // ✅ Centralized dynamic data
 
   const subcategories = [
     { id: "all", name: "All Women's" },

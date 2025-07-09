@@ -1,94 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
+import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
 
 const Kids = () => {
   // State for view mode and selected subcategory
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
 
-  const kidsProducts = [
-    {
-      id: 13,
-      name: "Air Max SC Kids",
-      price: "$65",
-      originalPrice: "$80",
-      image:
-        "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "shoes",
-      rating: 4.6,
-      reviews: 145,
-      colors: ["blue", "white", "red"],
-      sale: true,
-      ageGroup: "big-kids",
-    },
-    {
-      id: 14,
-      name: "Revolution 6 Kids",
-      price: "$55",
-      image:
-        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "shoes",
-      rating: 4.4,
-      reviews: 98,
-      colors: ["pink", "purple", "white"],
-      sale: false,
-      ageGroup: "little-kids",
-    },
-    {
-      id: 15,
-      name: "Dri-FIT Kids Tee",
-      price: "$20",
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.5,
-      reviews: 167,
-      colors: ["blue", "green", "orange"],
-      sale: false,
-      ageGroup: "big-kids",
-    },
-    {
-      id: 16,
-      name: "Kids Shorts Set",
-      price: "$35",
-      originalPrice: "$45",
-      image:
-        "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.3,
-      reviews: 89,
-      colors: ["blue", "red", "green"],
-      sale: true,
-      ageGroup: "little-kids",
-    },
-    {
-      id: 17,
-      name: "Kids Hoodie",
-      price: "$45",
-      image:
-        "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.7,
-      reviews: 234,
-      colors: ["gray", "blue", "black"],
-      sale: false,
-      ageGroup: "big-kids",
-    },
-    {
-      id: 18,
-      name: "Kids Backpack",
-      price: "$30",
-      image:
-        "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "accessories",
-      rating: 4.2,
-      reviews: 76,
-      colors: ["blue", "pink", "green"],
-      sale: false,
-      ageGroup: "big-kids",
-    },
-  ];
+  const kidsProducts = getProductsByCategory("kids");
 
   const subcategories = [
     { id: "all", name: "All Kids" },

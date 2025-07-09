@@ -9,24 +9,27 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
+import { CartProvider } from "./context/CartContext"; // adjust path if needed
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/men" element={<Men />} />
-          <Route path="/women" element={<Women />} />
-          <Route path="/kids" element={<Kids />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <div className="min-h-screen bg-white">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/men" element={<Men />} />
+            <Route path="/women" element={<Women />} />
+            <Route path="/kids" element={<Kids />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetail />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

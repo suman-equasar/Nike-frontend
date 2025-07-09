@@ -1,42 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Truck, Shield, RefreshCw } from "lucide-react";
+import { getFeaturedProducts } from "../data/products"; // Adjust the import path as necessary
 
 const Home = () => {
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Air Max 270",
-      price: "$150",
-      image:
-        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "Men's Shoes",
-    },
-    {
-      id: 2,
-      name: "React Infinity",
-      price: "$160",
-      image:
-        "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "Women's Shoes",
-    },
-    {
-      id: 3,
-      name: "Dri-FIT Shirt",
-      price: "$35",
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "Men's Clothing",
-    },
-    {
-      id: 4,
-      name: "Pro Shorts",
-      price: "$45",
-      image:
-        "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "Women's Clothing",
-    },
-  ];
+  const featuredProducts = getFeaturedProducts().slice(0, 4);
 
   const categories = [
     {

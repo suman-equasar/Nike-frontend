@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import { getProductById } from "../data/products"; // Adjust the import path as necessary
+
 import {
   Star,
   Heart,
@@ -13,40 +16,16 @@ import {
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const { dispatch } = useCart();
+
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
   // Mock product data - in real app, this would come from an API
-  const product = {
-    id: 1,
-    name: "Air Max 270",
-    price: "$150",
-    originalPrice: "$180",
-    description:
-      "The Nike Air Max 270 delivers visible Air cushioning underfoot with a sleek, modern design. Inspired by the first Air Max shoe, it features the tallest Air unit yet for all-day comfort.",
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=800",
-    ],
-    colors: ["Black", "White", "Red"],
-    sizes: ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11"],
-    rating: 4.5,
-    reviews: 127,
-    features: [
-      "Max Air cushioning for superior comfort",
-      "Mesh upper for breathability",
-      "Durable rubber outsole",
-      "Iconic Air Max design",
-    ],
-    specifications: {
-      "Upper Material": "Mesh and synthetic leather",
-      "Sole Material": "Rubber",
-      Weight: "10.2 oz",
-      Drop: "10mm",
-    },
-  };
+  const product = getProductById(id);
+  console.log("product id from URL:", id);
+  console.log("matched product:", product);
 
   const handleQuantityChange = (action) => {
     if (action === "increment") {
@@ -54,6 +33,35 @@ const ProductDetail = () => {
     } else if (action === "decrement" && quantity > 1) {
       setQuantity((prev) => prev - 1);
     }
+  };
+  const handleAddToCart = () => {
+    if (!selectedSize) return;
+
+    const productToAdd = {
+      id: product.id,
+      name: product.name,
+      price: parseFloat(product.price.replace("$", "")),
+      image: product.images[0],
+      size: selectedSize,
+    };
+
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        product: {
+          id: product.id,
+          name: product.name,
+          price: parseFloat(product.price.replace("$", "")),
+          image: product.images[0],
+          size: selectedSize,
+          color: product.colors?.[0], // if applicable
+        },
+        quantity,
+      },
+    });
+
+    // Optionally show feedback like toast or alert
+    alert("Added to cart!");
   };
 
   return (
@@ -177,7 +185,12 @@ const ProductDetail = () => {
             {/* Action Buttons */}
             <div className="space-y-4">
               <button
-                className="w-full bg-black text-white py-4 px-6 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-200 flex items-center justify-center"
+                onClick={handleAddToCart}
+                className={`w-full py-4 px-6 rounded-full font-semibold flex items-center justify-center transition-colors duration-200 ${
+                  selectedSize
+                    ? "bg-black text-white hover:bg-gray-800"
+                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                }`}
                 disabled={!selectedSize}
               >
                 <ShoppingBag className="w-5 h-5 mr-2" />

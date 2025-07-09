@@ -1,47 +1,24 @@
 import React, { useState } from "react";
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react";
-
+import { useCart } from "../context/CartContext"; // adjust the path as needed
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Air Max 270",
-      price: 150,
-      image:
-        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=300",
-      size: "9",
-      quantity: 1,
-      color: "Black",
-    },
-    {
-      id: 2,
-      name: "Dri-FIT Training Shirt",
-      price: 35,
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=300",
-      size: "M",
-      quantity: 2,
-      color: "Navy",
-    },
-  ]);
+  const { state, dispatch } = useCart();
+  const cartItems = state.items;
 
-  const updateQuantity = (id, action) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) => {
-        if (item.id === id) {
-          if (action === "increment") {
-            return { ...item, quantity: item.quantity + 1 };
-          } else if (action === "decrement" && item.quantity > 1) {
-            return { ...item, quantity: item.quantity - 1 };
-          }
-        }
-        return item;
-      })
-    );
+  const updateQuantity = (id, quantity) => {
+    if (quantity >= 1) {
+      dispatch({
+        type: "UPDATE_QUANTITY",
+        payload: { id, quantity },
+      });
+    }
   };
 
   const removeItem = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    dispatch({
+      type: "REMOVE_FROM_CART",
+      payload: { id },
+    });
   };
 
   const subtotal = cartItems.reduce(
@@ -123,7 +100,9 @@ const Cart = () => {
 
                     <div className="flex items-center space-x-2">
                       <button
-                        onClick={() => updateQuantity(item.id, "decrement")}
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity - 1)
+                        }
                         className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
                       >
                         <Minus className="w-4 h-4" />
@@ -132,7 +111,9 @@ const Cart = () => {
                         {item.quantity}
                       </span>
                       <button
-                        onClick={() => updateQuantity(item.id, "increment")}
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity + 1)
+                        }
                         className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
                       >
                         <Plus className="w-4 h-4" />

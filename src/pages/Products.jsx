@@ -1,93 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart } from "lucide-react";
+import { products } from "../data/products"; // ✅ Use imported products
 
 const Products = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  const products = [
-    {
-      id: 1,
-      name: "Air Max 270",
-      price: "$150",
-      originalPrice: "$180",
-      image:
-        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "shoes",
-      rating: 4.5,
-      reviews: 127,
-      colors: ["black", "white", "red"],
-      sale: true,
-    },
-    {
-      id: 2,
-      name: "React Infinity Run",
-      price: "$160",
-      image:
-        "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "shoes",
-      rating: 4.7,
-      reviews: 89,
-      colors: ["blue", "white", "gray"],
-      sale: false,
-    },
-    {
-      id: 3,
-      name: "Dri-FIT Training Shirt",
-      price: "$35",
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "clothing",
-      rating: 4.3,
-      reviews: 156,
-      colors: ["black", "white", "gray"],
-      sale: false,
-    },
-    {
-      id: 4,
-      name: "Pro Flex Shorts",
-      price: "$45",
-      originalPrice: "$60",
-      image:
-        "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "clothing",
-      rating: 4.6,
-      reviews: 203,
-      colors: ["black", "navy", "gray"],
-      sale: true,
-    },
-    {
-      id: 5,
-      name: "Air Force 1",
-      price: "$120",
-      image:
-        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "shoes",
-      rating: 4.8,
-      reviews: 342,
-      colors: ["white", "black", "red"],
-      sale: false,
-    },
-    {
-      id: 6,
-      name: "Sports Bra",
-      price: "$40",
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      category: "clothing",
-      rating: 4.4,
-      reviews: 78,
-      colors: ["black", "white", "pink"],
-      sale: false,
-    },
-  ];
-
   const categories = [
     { id: "all", name: "All Products" },
-    { id: "shoes", name: "Shoes" },
-    { id: "clothing", name: "Clothing" },
-    { id: "accessories", name: "Accessories" },
+    { id: "men", name: "Men" },
+    { id: "women", name: "Women" },
+    { id: "kids", name: "Kids" },
   ];
 
   const filteredProducts =
@@ -169,23 +93,22 @@ const Products = () => {
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
             >
               <div className="relative">
-                <div className="aspect-square bg-gray-100 overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-
-                {/* Sale Badge */}
+                <Link to={`/products/${product.id}`}>
+                  <div className="aspect-square bg-gray-100 overflow-hidden relative z-10">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </Link>
                 {product.sale && (
-                  <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                  <div className="absolute top-2 left-2 bg-red-500 z-20 text-white text-xs font-bold px-2 py-1 rounded">
                     SALE
                   </div>
                 )}
 
-                {/* Heart Icon */}
-                <button className="absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-50 transition-colors">
+                <button className="absolute top-2 right-2 p-2 z-20 rounded-full bg-white shadow-md hover:bg-gray-50 transition-colors">
                   <Heart className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
@@ -226,26 +149,28 @@ const Products = () => {
 
                 {/* Colors */}
                 <div className="flex space-x-2 mb-4">
-                  {product.colors.map((color, index) => (
+                  {product.colors?.map((color, index) => (
                     <div
                       key={index}
-                      className={`w-6 h-6 rounded-full border-2 border-gray-300 ${
-                        color === "black"
-                          ? "bg-black"
-                          : color === "white"
-                          ? "bg-white"
-                          : color === "red"
-                          ? "bg-red-500"
-                          : color === "blue"
-                          ? "bg-blue-500"
-                          : color === "gray"
-                          ? "bg-gray-500"
-                          : color === "navy"
-                          ? "bg-blue-900"
-                          : color === "pink"
-                          ? "bg-pink-500"
-                          : "bg-gray-300"
-                      }`}
+                      className={`w-6 h-6 rounded-full border-2 border-gray-300`}
+                      style={{
+                        backgroundColor:
+                          color.toLowerCase() === "white"
+                            ? "#fff"
+                            : color.toLowerCase() === "black"
+                            ? "#000"
+                            : color.toLowerCase() === "gray"
+                            ? "#888"
+                            : color.toLowerCase() === "red"
+                            ? "#f00"
+                            : color.toLowerCase() === "blue"
+                            ? "#00f"
+                            : color.toLowerCase() === "pink"
+                            ? "#f8c"
+                            : color.toLowerCase() === "green"
+                            ? "#0f0"
+                            : color.toLowerCase(),
+                      }}
                     ></div>
                   ))}
                 </div>

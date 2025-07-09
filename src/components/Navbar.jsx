@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ShoppingBag, Search, User, Heart } from "lucide-react";
+import { useCart } from "../context/CartContext"; // adjust path if needed
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { state } = useCart();
+  const cartCount = state.items.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const navItems = [
     { name: "New & Featured", href: "/products" },
@@ -43,9 +49,11 @@ const Navbar = () => {
             <Heart className="w-5 h-5 text-gray-600 hover:text-black cursor-pointer transition-colors" />
             <Link to="/cart" className="relative">
               <ShoppingBag className="w-5 h-5 text-gray-600 hover:text-black cursor-pointer transition-colors" />
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </Link>
             <User className="w-5 h-5 text-gray-600 hover:text-black cursor-pointer transition-colors" />
 

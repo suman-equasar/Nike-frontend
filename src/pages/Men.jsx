@@ -1,87 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
+import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
 
-const Men = () => {
+function Men() {
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
 
-  const menProducts = [
-    {
-      id: 1,
-      name: "Air Max 270",
-      price: "$150",
-      originalPrice: "$180",
-      image:
-        "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "shoes",
-      rating: 4.5,
-      reviews: 127,
-      colors: ["black", "white", "red"],
-      sale: true,
-    },
-    {
-      id: 2,
-      name: "Air Force 1",
-      price: "$120",
-      image:
-        "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "shoes",
-      rating: 4.8,
-      reviews: 342,
-      colors: ["white", "black", "red"],
-      sale: false,
-    },
-    {
-      id: 3,
-      name: "Dri-FIT Training Shirt",
-      price: "$35",
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.3,
-      reviews: 156,
-      colors: ["black", "white", "gray"],
-      sale: false,
-    },
-    {
-      id: 4,
-      name: "Pro Flex Shorts",
-      price: "$45",
-      originalPrice: "$60",
-      image:
-        "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.6,
-      reviews: 203,
-      colors: ["black", "navy", "gray"],
-      sale: true,
-    },
-    {
-      id: 5,
-      name: "Basketball Jersey",
-      price: "$85",
-      image:
-        "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "clothing",
-      rating: 4.4,
-      reviews: 89,
-      colors: ["black", "white", "red"],
-      sale: false,
-    },
-    {
-      id: 6,
-      name: "Running Cap",
-      price: "$25",
-      image:
-        "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500",
-      subcategory: "accessories",
-      rating: 4.2,
-      reviews: 67,
-      colors: ["black", "white", "navy"],
-      sale: false,
-    },
-  ];
+  const menProducts = getProductsByCategory("men"); // ✅ Get men products dynamically
 
   const subcategories = [
     { id: "all", name: "All Men's" },
@@ -96,7 +22,6 @@ const Men = () => {
       : menProducts.filter(
           (product) => product.subcategory === selectedSubcategory
         );
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -370,6 +295,6 @@ const Men = () => {
       </section>
     </div>
   );
-};
+}
 
 export default Men;
