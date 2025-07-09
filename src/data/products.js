@@ -32,11 +32,6 @@ export const products = [
     description:
       "The Nike Air Max 270 delivers visible Air cushioning underfoot with a sleek, modern design.",
     features: ["Max Air cushioning", "Mesh upper", "Durable rubber outsole"],
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 2,
@@ -68,11 +63,6 @@ export const products = [
     description:
       "The classic basketball shoe that started it all. Clean, simple, and timeless.",
     features: ["Leather upper", "Air-Sole unit", "Rubber outsole"],
-    images: [
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 3,
@@ -103,11 +93,6 @@ export const products = [
     featured: false,
     description: "Designed to help reduce injury and keep you on the run.",
     features: ["React foam", "Flyknit upper", "Rocker geometry"],
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 4,
@@ -139,11 +124,6 @@ export const products = [
     featured: false,
     description: "The most trusted running shoe, now with enhanced comfort.",
     features: ["Zoom Air unit", "Engineered mesh", "Waffle outsole"],
-    images: [
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 5,
@@ -174,11 +154,6 @@ export const products = [
     featured: false,
     description: "Created for the hardwood but taken to the streets.",
     features: ["Leather upper", "Foam midsole", "Rubber outsole"],
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // MEN'S CLOTHING
@@ -199,11 +174,6 @@ export const products = [
     featured: true,
     description: "Sweat-wicking technology keeps you dry and comfortable.",
     features: ["Dri-FIT technology", "Standard fit", "Crew neck"],
-    images: [
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 7,
@@ -223,11 +193,6 @@ export const products = [
     featured: false,
     description: "Flexible fabric moves with you during intense workouts.",
     features: ["Flex fabric", "Moisture-wicking", "Side pockets"],
-    images: [
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 8,
@@ -246,11 +211,6 @@ export const products = [
     featured: true,
     description: "Premium fleece with a modern, streamlined fit.",
     features: ["Tech Fleece fabric", "Zippered pockets", "Adjustable hood"],
-    images: [
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 9,
@@ -269,11 +229,6 @@ export const products = [
     featured: false,
     description: "Authentic basketball jersey with moisture-wicking fabric.",
     features: ["Dri-FIT technology", "Mesh panels", "Team graphics"],
-    images: [
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // MEN'S ACCESSORIES
@@ -294,11 +249,6 @@ export const products = [
     featured: false,
     description: "Lightweight cap with sweat-wicking sweatband.",
     features: ["Dri-FIT sweatband", "Adjustable strap", "Curved brim"],
-    images: [
-      "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 11,
@@ -317,11 +267,6 @@ export const products = [
     featured: false,
     description: "Durable training gloves with enhanced grip.",
     features: ["Synthetic leather palm", "Mesh back", "Wrist wrap"],
-    images: [
-      "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // WOMEN'S SHOES
@@ -348,11 +293,6 @@ export const products = [
       "Reflective details",
       "Wavy design lines",
     ],
-    images: [
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 13,
@@ -371,11 +311,6 @@ export const products = [
     featured: true,
     description: "Designed to help reduce injury and keep you on the run.",
     features: ["React foam", "Flyknit upper", "Rocker geometry"],
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 14,
@@ -394,11 +329,6 @@ export const products = [
     featured: false,
     description: "A fresh take on the classic with layered details.",
     features: ["Layered upper", "Double Swoosh", "Elevated midsole"],
-    images: [
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 15,
@@ -418,11 +348,6 @@ export const products = [
     featured: false,
     description: "The most trusted running shoe, now with enhanced comfort.",
     features: ["Zoom Air unit", "Engineered mesh", "Waffle outsole"],
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // WOMEN'S CLOTHING
@@ -443,11 +368,6 @@ export const products = [
     featured: true,
     description: "Soft, stretchy fabric perfect for yoga and everyday wear.",
     features: ["Infinalon fabric", "Non-sheer", "Minimal seaming"],
-    images: [
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 17,
@@ -467,11 +387,6 @@ export const products = [
     featured: false,
     description: "Medium-support sports bra with moisture-wicking fabric.",
     features: ["Dri-FIT technology", "Removable pads", "Racerback design"],
-    images: [
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 18,
@@ -490,11 +405,6 @@ export const products = [
     featured: true,
     description: "High-waisted leggings with sweat-wicking technology.",
     features: ["Dri-FIT technology", "High waistband", "Side pockets"],
-    images: [
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 19,
@@ -513,11 +423,6 @@ export const products = [
     featured: false,
     description: "Relaxed fit hoodie with soft fleece interior.",
     features: ["French terry fabric", "Kangaroo pocket", "Drawstring hood"],
-    images: [
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // WOMEN'S ACCESSORIES
@@ -538,11 +443,6 @@ export const products = [
     featured: false,
     description: "Sweat-wicking headband for intense workouts.",
     features: ["Dri-FIT technology", "Stretchy fabric", "Secure fit"],
-    images: [
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 21,
@@ -561,11 +461,6 @@ export const products = [
     featured: false,
     description: "Spacious gym bag with multiple compartments.",
     features: ["Water-resistant", "Shoe compartment", "Adjustable strap"],
-    images: [
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // KIDS' SHOES
@@ -602,11 +497,6 @@ export const products = [
     ageGroup: "big-kids",
     description: "Classic Air Max style designed for active kids.",
     features: ["Air cushioning", "Durable construction", "Easy on/off"],
-    images: [
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 23,
@@ -640,11 +530,6 @@ export const products = [
     ageGroup: "little-kids",
     description: "Comfortable running shoes for everyday adventures.",
     features: ["Soft foam midsole", "Flexible outsole", "Breathable upper"],
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 24,
@@ -678,11 +563,6 @@ export const products = [
     ageGroup: "big-kids",
     description: "The classic basketball shoe sized for kids.",
     features: ["Leather upper", "Air-Sole unit", "Rubber outsole"],
-    images: [
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // KIDS' CLOTHING
@@ -704,11 +584,6 @@ export const products = [
     ageGroup: "big-kids",
     description: "Moisture-wicking tee perfect for active kids.",
     features: ["Dri-FIT technology", "Soft fabric", "Fun graphics"],
-    images: [
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 26,
@@ -729,11 +604,6 @@ export const products = [
     ageGroup: "little-kids",
     description: "Comfortable shorts and tee set for everyday play.",
     features: ["Soft cotton blend", "Elastic waistband", "Matching set"],
-    images: [
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 27,
@@ -753,11 +623,6 @@ export const products = [
     ageGroup: "big-kids",
     description: "Cozy hoodie with fun Nike branding.",
     features: ["Soft fleece lining", "Kangaroo pocket", "Adjustable hood"],
-    images: [
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // KIDS' ACCESSORIES
@@ -779,11 +644,6 @@ export const products = [
     ageGroup: "big-kids",
     description: "Durable backpack perfect for school or sports.",
     features: ["Multiple compartments", "Padded straps", "Water bottle holder"],
-    images: [
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
   {
     id: 29,
@@ -803,11 +663,6 @@ export const products = [
     ageGroup: "big-kids",
     description: "Adjustable cap with fun Nike branding.",
     features: ["Adjustable strap", "Curved brim", "Embroidered logo"],
-    images: [
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 
   // ADDITIONAL FEATURED PRODUCTS
@@ -840,11 +695,6 @@ export const products = [
     featured: true,
     description: "The iconic Jordan silhouette in a low-top design.",
     features: ["Premium leather", "Air-Sole unit", "Wings logo"],
-    images: [
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
-    ],
   },
 ];
 
