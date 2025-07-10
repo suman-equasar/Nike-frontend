@@ -28,14 +28,12 @@ function cartReducer(state, action) {
       let newItems;
 
       if (existingItemIndex >= 0) {
-        // Update quantity if item already exists with same id + size + color
         newItems = state.items.map((item, index) =>
           index === existingItemIndex
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        // Add new item
         newItems = [...state.items, { ...product, quantity }];
       }
 
@@ -47,15 +45,28 @@ function cartReducer(state, action) {
 
     case CART_ACTIONS.REMOVE_FROM_CART:
       return {
-        items: state.items.filter((item) => item.id !== action.payload.id),
+        ...state,
+        items: state.items.filter(
+          (item) =>
+            !(
+              item.id === action.payload.id &&
+              item.size === action.payload.size &&
+              item.color === action.payload.color
+            )
+        ),
       };
 
     case CART_ACTIONS.UPDATE_QUANTITY: {
-      const { id, quantity } = action.payload;
+      const { id, size, color, quantity } = action.payload;
       const updatedItems = state.items.map((item) =>
-        item.id === id ? { ...item, quantity } : item
+        item.id === id && item.size === size && item.color === color
+          ? { ...item, quantity }
+          : item
       );
-      return { items: updatedItems };
+      return {
+        ...state,
+        items: updatedItems,
+      };
     }
 
     case CART_ACTIONS.CLEAR_CART:

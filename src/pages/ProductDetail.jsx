@@ -18,14 +18,21 @@ const ProductDetail = () => {
   const { id } = useParams();
   const { dispatch } = useCart();
 
+  // Mock product data - in real app, this would come from an API
+  const product = getProductById(id);
+
   const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  // Mock product data - in real app, this would come from an API
-  const product = getProductById(id);
-  console.log("product id from URL:", id);
-  console.log("matched product:", product);
+  // Get image for selected color
+  const imageSrc =
+    product.images && product.images[selectedColor]
+      ? product.images[selectedColor]
+      : Array.isArray(product.images)
+      ? product.images[0]
+      : product.image;
 
   const handleQuantityChange = (action) => {
     if (action === "increment") {
@@ -37,14 +44,6 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     if (!selectedSize) return;
 
-    const productToAdd = {
-      id: product.id,
-      name: product.name,
-      price: parseFloat(product.price.replace("$", "")),
-      image: product.images[0],
-      size: selectedSize,
-    };
-
     dispatch({
       type: "ADD_TO_CART",
       payload: {
@@ -52,9 +51,9 @@ const ProductDetail = () => {
           id: product.id,
           name: product.name,
           price: parseFloat(product.price.replace("$", "")),
-          image: product.images[0],
+          image: imageSrc,
           size: selectedSize,
-          color: product.colors?.[0], // if applicable
+          color: selectedColor, // if applicable
         },
         quantity,
       },
@@ -72,13 +71,13 @@ const ProductDetail = () => {
           <div className="space-y-4">
             <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
               <img
-                src={product.images[selectedImage]}
+                src={imageSrc}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
             </div>
 
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               {product.images.map((image, index) => (
                 <button
                   key={index}
@@ -97,8 +96,39 @@ const ProductDetail = () => {
                 </button>
               ))}
             </div>
+          </div> */}
+            {/* Color Swatches */}
+            <div className="flex space-x-4 mt-4">
+              {product.colors.map((color, idx) => (
+                <button
+                  key={color}
+                  onClick={() => setSelectedColor(color)}
+                  className={`w-10 h-10 rounded-full border-2 ${
+                    selectedColor === color ? "border-black" : "border-gray-300"
+                  }`}
+                  style={{
+                    backgroundColor:
+                      color.toLowerCase() === "white"
+                        ? "#fff"
+                        : color.toLowerCase() === "black"
+                        ? "#000"
+                        : color.toLowerCase() === "gray"
+                        ? "#888"
+                        : color.toLowerCase() === "red"
+                        ? "#f00"
+                        : color.toLowerCase() === "blue"
+                        ? "#00f"
+                        : color.toLowerCase() === "pink"
+                        ? "#f8c"
+                        : color.toLowerCase() === "green"
+                        ? "#0f0"
+                        : color.toLowerCase(),
+                  }}
+                  aria-label={color}
+                ></button>
+              ))}
+            </div>
           </div>
-
           {/* Product Details */}
           <div className="space-y-6">
             <div>

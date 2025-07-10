@@ -1,23 +1,31 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react";
 import { useCart } from "../context/CartContext"; // adjust the path as needed
+import { useNavigate } from "react-router-dom"; // Ensure you have react-router-dom installed
 const Cart = () => {
   const { state, dispatch } = useCart();
   const cartItems = state.items;
 
-  const updateQuantity = (id, quantity) => {
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
+
+  const updateQuantity = (id, size, color, quantity) => {
     if (quantity >= 1) {
       dispatch({
         type: "UPDATE_QUANTITY",
-        payload: { id, quantity },
+        payload: { id, size, color, quantity },
       });
     }
   };
 
-  const removeItem = (id) => {
+  const removeItem = (id, size, color) => {
     dispatch({
       type: "REMOVE_FROM_CART",
-      payload: { id },
+      payload: { id, size, color },
     });
   };
 
@@ -41,13 +49,13 @@ const Cart = () => {
             <p className="text-gray-600 mb-8">
               Add some items to your cart to get started
             </p>
-            <a
-              href="/products"
+            <Link
+              to={"/products"}
               className="inline-flex items-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-200"
             >
               Continue Shopping
               <ArrowRight className="ml-2 w-4 h-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -101,7 +109,12 @@ const Cart = () => {
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={() =>
-                          updateQuantity(item.id, item.quantity - 1)
+                          updateQuantity(
+                            item.id,
+                            item.size,
+                            item.color,
+                            item.quantity - 1
+                          )
                         }
                         className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
                       >
@@ -112,7 +125,13 @@ const Cart = () => {
                       </span>
                       <button
                         onClick={() =>
-                          updateQuantity(item.id, item.quantity + 1)
+                          updateQuantity(
+                            item.id,
+                            item.size,
+                            item.color,
+
+                            item.quantity + 1
+                          )
                         }
                         className="p-1 rounded-full border border-gray-300 hover:bg-gray-50"
                       >
@@ -121,7 +140,7 @@ const Cart = () => {
                     </div>
 
                     <button
-                      onClick={() => removeItem(item.id)}
+                      onClick={() => removeItem(item.id, item.size, item.color)}
                       className="p-2 text-red-500 hover:bg-red-50 rounded-full"
                     >
                       <Trash2 className="w-5 h-5" />
@@ -169,14 +188,17 @@ const Cart = () => {
                 </div>
               </div>
 
-              <button className="w-full mt-6 bg-black text-white py-3 px-4 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-200">
+              <button
+                className="w-full mt-6 bg-black text-white py-3 px-4 rounded-full font-semibold hover:bg-gray-800 transition-colors duration-200"
+                onClick={handleCheckout}
+              >
                 Proceed to Checkout
               </button>
 
               <div className="mt-4 text-center">
-                <a href="/products" className="text-black hover:underline">
+                <Link to="/products" className="text-black hover:underline">
                   Continue Shopping
-                </a>
+                </Link>
               </div>
             </div>
 
