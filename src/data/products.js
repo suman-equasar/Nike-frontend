@@ -400,7 +400,16 @@ export const products = [
     name: "React Infinity Run",
     price: "$160",
     image:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/beb4fae2-f980-464b-b9f1-a5cf2e0ef1c9/W+PEGASUS+PLUS.png",
+    images: {
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/beb4fae2-f980-464b-b9f1-a5cf2e0ef1c9/W+PEGASUS+PLUS.png",
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4e765f2a-dfe8-495a-930f-7584ba85fb15/WMNS+NIKE+AIR+WINFLO+11.png",
+      Purple:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4d40d814-fe8c-43f4-a5b0-40ad63d70fd3/W+NIKE+PEGASUS+PREMIUM+FK.png",
+      Black:
+        " https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b54d1a4b-10af-4894-b0bb-77c1e271bad5/W+PEGASUS+EASYON.png",
+    },
     category: "women",
     subcategory: "shoes",
     type: "running",
@@ -418,7 +427,16 @@ export const products = [
     name: "Air Force 1 Shadow",
     price: "$110",
     image:
-      "https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/l3w4varugbogihcpj40e/W+AF1+SHADOW.png",
+    images: {
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/l3w4varugbogihcpj40e/W+AF1+SHADOW.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e5aee4c9-5144-43a7-b59e-7dd44d599463/AIR+FORCE+1+SP+%28GS%29.png",
+      Purple:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f6145e59-2ab8-4531-8671-9d84c166adcc/W+AIR+FORCE+1+%2707.png",
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7dbcf447-09fd-44b0-aa75-436626a318c5/AIR+FORCE+1+%2707+LV8.png",
+    },
     category: "women",
     subcategory: "shoes",
     type: "lifestyle",
@@ -437,7 +455,15 @@ export const products = [
     price: "$130",
     originalPrice: "$150",
     image:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7f673fe1-b535-45c9-8ffe-21573d36a98f/W+PEGASUS+TRAIL+5+GTX.png",
+    images: {
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7f673fe1-b535-45c9-8ffe-21573d36a98f/W+PEGASUS+TRAIL+5+GTX.png",
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/40851f6f-8055-4374-b33c-1ab8e69b34a8/W+NIKE+PEGASUS+PREMIUM.png",
+      Purple:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4d40d814-fe8c-43f4-a5b0-40ad63d70fd3/W+NIKE+PEGASUS+PREMIUM+FK.png",
+      Gray: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6a3aa722-c36e-45e9-8d25-c1802306e042/W+NIKE+REACTX+PEGASUS+TRAIL+5.png",
+    },
     category: "women",
     subcategory: "shoes",
     type: "running",
@@ -457,13 +483,20 @@ export const products = [
     name: "Yoga Luxe Crop Top",
     price: "$55",
     image:
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b42e37ce-f2ab-49d3-84ac-108ae4ce2f82/AS+W+NK+INF+DF+SS+TOP+WD+RIB.png",
+    images: {
+      Black:
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b42e37ce-f2ab-49d3-84ac-108ae4ce2f82/AS+W+NK+INF+DF+SS+TOP+WD+RIB.png",
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/09473c87-748b-4855-b7af-4cf85ef03afb/AS+W+NK+INF+DF+SS+TOP+WD+RIB.png",
+      Brown:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5c87dcce-f260-464b-a04b-b7d25483b81c/AS+W+NK+INF+DF+LS+TOP.png",
+    },
     category: "women",
     subcategory: "clothing",
     type: "tops",
     rating: 4.8,
     reviews: 156,
-    colors: ["Black", "White", "Pink", "Purple"],
+    colors: ["Black", "Blue", "Brown"],
     sizes: ["XS", "S", "M", "L", "XL"],
     sale: false,
     featured: true,
@@ -472,11 +505,19 @@ export const products = [
   },
   {
     id: 17,
-    name: "Pro Sports Bra",
+    name: " Women Hoodies",
     price: "$40",
     originalPrice: "$50",
     image:
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d98c9df3-a812-4307-8156-93a4e92e0171/AS+W+NK+24.7+DF+HZ+TOP+SOFT.png",
+    images: {
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d98c9df3-a812-4307-8156-93a4e92e0171/AS+W+NK+24.7+DF+HZ+TOP+SOFT.png",
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1b29216b-4c1d-4f02-ba91-d88afd5f5f14/AS+W+NSW+NK+CHLL+FT+FZ+HDY.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5c1ef46b-2068-43b5-8027-39e8a59039bc/AS+W+NSW+CLUB+FLC+STD+GX+CREW.png",
+      Gray: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e34f6bb2-3fbb-4bcd-8c68-15d3f956b045/AS+W+NSW+PHNX+FLC+CROP+VNECK+O.png",
+    },
     category: "women",
     subcategory: "clothing",
     type: "tops",
@@ -494,13 +535,22 @@ export const products = [
     name: "Dri-FIT Leggings",
     price: "$65",
     image:
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1506bb9c-2137-4edc-928b-068aa902e6c7/AS+W+NSW+NK+CLSC+GX+HR+TIGHT+F.png",
+    images: {
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1506bb9c-2137-4edc-928b-068aa902e6c7/AS+W+NSW+NK+CLSC+GX+HR+TIGHT+F.png",
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/3c3b06e9-8f11-4498-9c8a-bc2974d00f45/AS+W+NK+DF+ZENVY+HR+TGHT.png",
+      Purple:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d9731b6b-8f23-4a8d-a1d5-432ddcc6e8b2/AS+W+NK+DF+ZENVY+HR+TGHT.png",
+      Brown:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6f131d1f-ef1d-4a9b-9807-56b91d4af74b/AS+W+NK+DF+ZENVY+HR+7%2F8+TGHT.png",
+    },
     category: "women",
     subcategory: "clothing",
     type: "bottoms",
     rating: 4.9,
     reviews: 312,
-    colors: ["Black", "Gray", "Navy", "Purple"],
+    colors: ["Black", "Blue", "Purple", "Brown"],
     sizes: ["XS", "S", "M", "L", "XL"],
     sale: false,
     featured: true,
@@ -509,16 +559,24 @@ export const products = [
   },
   {
     id: 19,
-    name: "Oversized Hoodie",
+    name: "Women Jackets",
     price: "$75",
     image:
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/374c403e-7b2f-47c9-87fa-ea74da642b4b/AS+W+NSW+NK+WR+WVN+UV+FZ+JKT.png",
+    images: {
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/374c403e-7b2f-47c9-87fa-ea74da642b4b/AS+W+NSW+NK+WR+WVN+UV+FZ+JKT.png",
+      Gray: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6a65a8d3-b37b-4a72-8f97-4cb5882e881d/AS+W+NSW+STREET+WVN+JKT.png",
+      Red: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/581de38c-b535-4d7e-a756-b097dbc2ba95/AS+W+NSW+NK+WR+POLY+KNIT+JKT.png",
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7b89287b-3ddf-4d7b-ac7c-3770ca6ca068/AS+W+NSW+EVRTHNG+WVN+RPL+UV.png",
+    },
     category: "women",
     subcategory: "clothing",
     type: "tops",
     rating: 4.6,
     reviews: 189,
-    colors: ["Black", "Gray", "Pink", "White"],
+    colors: ["Black", "Gray", "Red", "White"],
     sizes: ["XS", "S", "M", "L", "XL"],
     sale: false,
     featured: false,
@@ -532,13 +590,19 @@ export const products = [
     name: "Training Headband",
     price: "$18",
     image:
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d1ec2a89-4f89-47f3-9cc5-0ab4d322e1b4/U+NK+DFADV+ACE+VISOR+U+SAB+P.png",
+    images: {
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d1ec2a89-4f89-47f3-9cc5-0ab4d322e1b4/U+NK+DFADV+ACE+VISOR+U+SAB+P.png",
+      White:
+        "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/8d7401e2-3d78-4e06-ac3d-00bf76e98452/U+NK+DFADV+ACE+VISOR+U+SAB+P.png",
+    },
     category: "women",
     subcategory: "accessories",
     type: "headwear",
     rating: 4.3,
     reviews: 89,
-    colors: ["Black", "White", "Pink", "Purple"],
+    colors: ["Black", "White"],
     sizes: ["One Size"],
     sale: false,
     featured: false,
@@ -550,7 +614,13 @@ export const products = [
     name: "Gym Bag",
     price: "$45",
     image:
-      "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e1e3b396-f6e7-442b-afc6-1dcaf2c3c721/NK+BRSLA+M+DUFF+-+9.0+%2860L%29.png",
+    images: {
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e1e3b396-f6e7-442b-afc6-1dcaf2c3c721/NK+BRSLA+M+DUFF+-+9.0+%2860L%29.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8f34c0bb-9d42-4777-9db3-e7aa901769d4/NK+GYM+CLUB+BAG+-+SP23.png",
+      Gray: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/ed8e8de1-ab3e-4b4c-ae05-ea63a6866211/NK+GYM+CLUB+BAG+-+SP23.png",
+    },
     category: "women",
     subcategory: "accessories",
     type: "bags",
@@ -571,7 +641,14 @@ export const products = [
     price: "$65",
     originalPrice: "$80",
     image:
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0a6b0fde-b870-43e6-b1fd-9168e324e09c/KOBE+IX+LOW+EM+%28GS%29.png",
+    images: {
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/0a6b0fde-b870-43e6-b1fd-9168e324e09c/KOBE+IX+LOW+EM+%28GS%29.png",
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/2692e4cf-0384-4e1f-9f92-3a5a6eda646c/AIR+JORDAN+3+RETRO+%28GS%29.png",
+      Red: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e2cfa2cf-faad-407d-a2bb-5b96467a34da/FLEX+RUNNER+4+%28GS%29.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4e4c4104-592b-4b5f-b460-88656d9133dd/VOMERO+5+%28GS%29.png",
+    },
     category: "kids",
     subcategory: "shoes",
     type: "lifestyle",
@@ -604,7 +681,16 @@ export const products = [
     name: "Revolution 6 Kids",
     price: "$55",
     image:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/9b3da1e0-6603-4094-87bf-ef8906ed10fc/FLEX+RUNNER+4+%28GS%29.png",
+    images: {
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/9b3da1e0-6603-4094-87bf-ef8906ed10fc/FLEX+RUNNER+4+%28GS%29.png",
+      Purple:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c4b2743f-9950-4ee8-bdb0-ed355d799975/NIKE+COSMIC+RUNNER+%28GS%29.png",
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/af3efb81-39b4-4d1c-9b9b-3b9ebe3a2965/AIR+FORCE+1+MID+EASYON+%28GS%29.png",
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6dafd6ef-a6d2-4744-a951-1fdf4678fa09/NIKE+STAR+RUNNER+5+%28GS%29.png",
+    },
+
     category: "kids",
     subcategory: "shoes",
     type: "running",
@@ -637,7 +723,15 @@ export const products = [
     name: "Force 1 Kids",
     price: "$60",
     image:
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/aebe13df-bd28-4281-b78d-abd5ca707d06/JORDAN+3+RETRO+%28PS%29.png",
+    images: {
+      White:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/aebe13df-bd28-4281-b78d-abd5ca707d06/JORDAN+3+RETRO+%28PS%29.png",
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/8f595419-edc2-4e4a-baea-b1560b7d5dab/NIKE+VARSITY+LEATHER+%28PSV%29.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1318a33b-4e94-4810-ba24-38dcbf869610/NIKE+COSMIC+RUNNER+%28PSV%29.png",
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/15851241-d3a7-4744-a033-82aaf83a6597/JORDAN+1+RETRO+HIGH+OG+%28PS%29.png",
+    },
     category: "kids",
     subcategory: "shoes",
     type: "lifestyle",
@@ -669,10 +763,18 @@ export const products = [
   // KIDS' CLOTHING
   {
     id: 25,
-    name: "Dri-FIT Kids Tee",
+    name: " Kids T-Shirt",
     price: "$20",
     image:
-      "https://images.pexels.com/photos/8839904/pexels-photo-8839904.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/9fbe5eb0-f870-4093-a094-930e3267785f/K+NSW+TEE+BOXY+BREAK+DANCE.png",
+    images: {
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/9fbe5eb0-f870-4093-a094-930e3267785f/K+NSW+TEE+BOXY+BREAK+DANCE.png",
+      Green:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/2e40efff-80c0-4b88-8fd3-d592b32ade82/K+NIKE+SB+DF+SS+JERSEY+GFX.png",
+      Orange:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/c3a88a5e-abea-492c-ae50-8f1348d5005d/G+NSW+TEE+BOXY+ESSNTL+LBR.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/96d8d191-1b6b-446c-95e3-a594828a6640/K+NSW+TEE+EMB+FUTURA+LBR.png",
+    },
     category: "kids",
     subcategory: "clothing",
     type: "tops",
@@ -692,13 +794,23 @@ export const products = [
     price: "$35",
     originalPrice: "$45",
     image:
-      "https://images.pexels.com/photos/7203045/pexels-photo-7203045.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e57bc049-44e7-42b9-8f95-98f02eeebe72/K+NSW+CLUB+FT+SHORT+FMLY+-PD.png",
+    images: {
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/e57bc049-44e7-42b9-8f95-98f02eeebe72/K+NSW+CLUB+FT+SHORT+FMLY+-PD.png",
+      Orange:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f1ad569a-fcba-4d47-b516-7e66616d0e1d/K+NSW+CLUB+WVN+SHORT+4.5IN.png",
+      Green:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/248cdab4-bb14-427a-b044-ac1c0096f803/K+NSW+CLUB+KNIT+SHORT+6IN+LBR.png",
+      Purple:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/a14fa73d-227b-4ab0-9cd8-a780471af13b/G+NSW+WVN+CRGO+SHORT+STY+STAR.png",
+    },
+
     category: "kids",
     subcategory: "clothing",
     type: "sets",
     rating: 4.3,
     reviews: 89,
-    colors: ["Blue", "Red", "Green", "Purple"],
+    colors: ["Blue", "Orange", "Green", "Purple"],
     sizes: ["XS", "S", "M", "L", "XL"],
     sale: true,
     featured: false,
@@ -711,7 +823,14 @@ export const products = [
     name: "Kids Hoodie",
     price: "$45",
     image:
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/a43f2be1-32c6-4c1d-9429-c76a0b9db86c/K+NSW+CLUB+FT+HD+FZ+LS+LBR.png",
+    images: {
+      Gray: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/a43f2be1-32c6-4c1d-9429-c76a0b9db86c/K+NSW+CLUB+FT+HD+FZ+LS+LBR.png",
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b7945a67-208a-42fb-a0af-3124332186cf/K+NK+RPL+CROSSOVER+JKT.png",
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/76be69d0-7dae-4469-8402-599f6a4893d6/K+NSW+CLUB+KNIT+FZ+LS+LBR.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6e843f30-654c-4c08-b4dc-541edf08799c/AJA+K+NK+CLUB+FLC+HDY.png",
+    },
     category: "kids",
     subcategory: "clothing",
     type: "tops",
@@ -732,13 +851,21 @@ export const products = [
     name: "Kids Backpack",
     price: "$30",
     image:
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/cd59985c-6574-4472-b754-5f949c072f27/Y+NK+BRSLA+JDI+MINI+BKPK-JELLY.png",
+    images: {
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/cd59985c-6574-4472-b754-5f949c072f27/Y+NK+BRSLA+JDI+MINI+BKPK-JELLY.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/74498290-3bc9-4cbd-beb7-c6eb5497dcb8/Y+NK+BRSLA+JDI+MINI+BKPK.png",
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/ac718c7a-fd95-42b7-8238-345b59abcd4c/Y+NK+BRSLA+JDI+MNI+BK-AOP+FA25.png",
+      Purple:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d25d29b3-44a2-402d-b836-f935ee023eb3/Y+NK+BRSLA+JDI+MINI+BKPK-JELLY.png",
+    },
     category: "kids",
     subcategory: "accessories",
     type: "bags",
     rating: 4.2,
     reviews: 76,
-    colors: ["Blue", "Pink", "Green", "Purple"],
+    colors: ["Blue", "Pink", "Black", "Purple"],
     sizes: ["One Size"],
     sale: false,
     featured: false,
@@ -751,13 +878,19 @@ export const products = [
     name: "Kids Cap",
     price: "$20",
     image:
-      "https://images.pexels.com/photos/1619697/pexels-photo-1619697.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d7dee79-e229-4971-9564-5501ce781a92/K+NK+RISE+CAP+S+CB+TRKR.png",
+    images: {
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6d7dee79-e229-4971-9564-5501ce781a92/K+NK+RISE+CAP+S+CB+TRKR.png",
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/39ca84de-2056-4e39-a5cd-f46cc9e78943/K+NK+DF+CLUB+CAP+US+CB+FTHLT.png",
+      Pink: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/3b68b872-c849-4f9c-9d97-7bb1859cbdf5/K+NK+CLUB+CAP+US+CB+FRUIT+PACK.png",
+    },
     category: "kids",
     subcategory: "accessories",
     type: "headwear",
     rating: 4.4,
     reviews: 92,
-    colors: ["Blue", "Red", "Black", "Pink"],
+    colors: ["Blue", "Black", "Pink"],
     sizes: ["One Size"],
     sale: false,
     featured: false,
@@ -772,13 +905,20 @@ export const products = [
     name: "Air Jordan 1 Low",
     price: "$140",
     image:
-      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=500",
+      "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3fcec3e3-1551-400b-90f9-56ecebebbb78/JORDAN+MAX+AURA+2+%28PS%29.png",
+    images: {
+      Black:
+        "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3fcec3e3-1551-400b-90f9-56ecebebbb78/JORDAN+MAX+AURA+2+%28PS%29.png",
+      White:
+        " https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/aebe13df-bd28-4281-b78d-abd5ca707d06/JORDAN+3+RETRO+%28PS%29.png",
+      Blue: "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/18129cf0-b2c1-4668-960c-ab76c4eae933/JORDAN+TATUM+3+%28PS%29.png",
+    },
     category: "men",
     subcategory: "shoes",
     type: "lifestyle",
     rating: 4.9,
     reviews: 456,
-    colors: ["Black", "White", "Red", "Blue"],
+    colors: ["Black", "White", "Blue"],
     sizes: [
       "7",
       "7.5",

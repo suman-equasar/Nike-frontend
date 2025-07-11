@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
 import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
@@ -7,6 +7,11 @@ const Kids = () => {
   // State for view mode and selected subcategory
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
+  const productRef = useRef(null);
+
+  const handleScrollToProducts = () => {
+    productRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const kidsProducts = getProductsByCategory("kids");
 
@@ -45,13 +50,13 @@ const Kids = () => {
             <p className="text-xl md:text-2xl text-white mb-6">
               Fuel their passion for play and adventure
             </p>
-            <Link
-              to="#products"
+            <button
+              onClick={handleScrollToProducts}
               className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
             >
               Shop Now
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -220,6 +225,7 @@ const Kids = () => {
 
           {/* Products Grid */}
           <div
+            ref={productRef}
             className={`grid gap-6 ${
               viewMode === "grid"
                 ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -296,32 +302,39 @@ const Kids = () => {
 
                   {/* Colors */}
                   <div className="flex space-x-2 mb-4">
-                    {product.colors.map((color, index) => (
-                      <div
-                        key={index}
-                        className={`w-6 h-6 rounded-full border-2 border-gray-300 ${
-                          color === "black"
-                            ? "bg-black"
-                            : color === "white"
-                            ? "bg-white"
-                            : color === "blue"
-                            ? "bg-blue-500"
-                            : color === "red"
-                            ? "bg-red-500"
-                            : color === "green"
-                            ? "bg-green-500"
-                            : color === "pink"
-                            ? "bg-pink-500"
-                            : color === "purple"
-                            ? "bg-purple-500"
-                            : color === "orange"
-                            ? "bg-orange-500"
-                            : color === "gray"
-                            ? "bg-gray-500"
-                            : "bg-gray-300"
-                        }`}
-                      ></div>
-                    ))}
+                    {product.colors.map((color, index) => {
+                      const colorLower = color.toLowerCase();
+                      return (
+                        <div
+                          key={index}
+                          className={`w-6 h-6 rounded-full border-2 border-gray-300 ${
+                            colorLower === "black"
+                              ? "bg-black"
+                              : colorLower === "white"
+                              ? "bg-white"
+                              : colorLower === "red"
+                              ? "bg-red-500"
+                              : colorLower === "blue"
+                              ? "bg-blue-500"
+                              : colorLower === "gray"
+                              ? "bg-gray-500"
+                              : colorLower === "navy"
+                              ? "bg-blue-900"
+                              : colorLower === "green"
+                              ? "bg-green-500"
+                              : colorLower === "pink"
+                              ? "bg-pink-400"
+                              : colorLower === "purple"
+                              ? "bg-purple-500"
+                              : colorLower === "brown"
+                              ? "bg-yellow-900"
+                              : colorLower === "orange"
+                              ? "bg-orange-400"
+                              : "bg-gray-300"
+                          }`}
+                        ></div>
+                      );
+                    })}
                   </div>
 
                   <Link

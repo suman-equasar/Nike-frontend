@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
 import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
@@ -8,7 +8,11 @@ function Men() {
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
 
   const menProducts = getProductsByCategory("men"); // ✅ Get men products dynamically
+  const productRef = useRef(null);
 
+  const handleScrollToProducts = () => {
+    productRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   const subcategories = [
     { id: "all", name: "All Men's" },
     { id: "shoes", name: "Shoes" },
@@ -43,13 +47,13 @@ function Men() {
             <p className="text-xl md:text-2xl text-gray-200 mb-6">
               Gear up for greatness with performance-driven designs
             </p>
-            <Link
-              to="#products"
+            <button
+              onClick={handleScrollToProducts}
               className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
             >
               Shop Now
               <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -172,6 +176,7 @@ function Men() {
 
           {/* Products Grid */}
           <div
+            ref={productRef}
             className={`grid gap-6 ${
               viewMode === "grid"
                 ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
@@ -241,26 +246,39 @@ function Men() {
 
                   {/* Colors */}
                   <div className="flex space-x-2 mb-4">
-                    {product.colors.map((color, index) => (
-                      <div
-                        key={index}
-                        className={`w-6 h-6 rounded-full border-2 border-gray-300 ${
-                          color === "black"
-                            ? "bg-black"
-                            : color === "white"
-                            ? "bg-white"
-                            : color === "red"
-                            ? "bg-red-500"
-                            : color === "blue"
-                            ? "bg-blue-500"
-                            : color === "gray"
-                            ? "bg-gray-500"
-                            : color === "navy"
-                            ? "bg-blue-900"
-                            : "bg-gray-300"
-                        }`}
-                      ></div>
-                    ))}
+                    {product.colors.map((color, index) => {
+                      const colorLower = color.toLowerCase();
+                      return (
+                        <div
+                          key={index}
+                          className={`w-6 h-6 rounded-full border-2 border-gray-300 ${
+                            colorLower === "black"
+                              ? "bg-black"
+                              : colorLower === "white"
+                              ? "bg-white"
+                              : colorLower === "red"
+                              ? "bg-red-500"
+                              : colorLower === "blue"
+                              ? "bg-blue-500"
+                              : colorLower === "gray"
+                              ? "bg-gray-500"
+                              : colorLower === "navy"
+                              ? "bg-blue-900"
+                              : colorLower === "green"
+                              ? "bg-green-500"
+                              : colorLower === "pink"
+                              ? "bg-pink-400"
+                              : colorLower === "purple"
+                              ? "bg-purple-500"
+                              : colorLower === "brown"
+                              ? "bg-yellow-900"
+                              : colorLower === "orange"
+                              ? "bg-orange-400"
+                              : "bg-gray-300"
+                          }`}
+                        ></div>
+                      );
+                    })}
                   </div>
 
                   <Link
