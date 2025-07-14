@@ -5,6 +5,16 @@ const Checkout = () => {
   const [cart, setCart] = useState({ items: [] });
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!document.getElementById("razorpay-sdk")) {
+      const script = document.createElement("script");
+      script.id = "razorpay-sdk";
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const [form, setForm] = useState({
     fullName: "",
     address: "",
@@ -68,9 +78,55 @@ const Checkout = () => {
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
+  const handleRazorpay = () => {
+    const validationErrors = {};
+    Object.keys(form).forEach((field) => {
+      const error = validateField(field, form[field]);
+      if (error) validationErrors[field] = error;
+    });
+
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) {
+      alert("⚠️ Please fill all shipping info correctly before paying.");
+      return;
+    }
+
+    if (!window.Razorpay) {
+      alert("Razorpay SDK not yet loaded. Try again in a moment.");
+      return;
+    }
+
+    const options = {
+      key: "rzp_test_1DP5mmOlF5G5ag", // Razorpay test key
+      amount: Math.round(total * 100), // convert ₹ to paise
+      currency: "INR",
+      name: "Demo Store",
+      description: "Test Transaction",
+      handler: function (response) {
+        alert(
+          "✅ Payment successful!\nPayment ID: " + response.razorpay_payment_id
+        );
+        localStorage.removeItem("cart");
+        setCart({ items: [] }); // ✅ update React state too
+        navigate("/");
+      },
+      prefill: {
+        name: form.fullName,
+        contact: form.phone,
+      },
+      theme: {
+        color: "#000000",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
   // ✅ Form submit
   const handlePlaceOrder = (e) => {
     e.preventDefault();
+
     const newErrors = {};
     Object.keys(form).forEach((field) => {
       const error = validateField(field, form[field]);
@@ -85,6 +141,8 @@ const Checkout = () => {
     }
 
     localStorage.removeItem("cart");
+    setCart({ items: [] }); // ✅ also clear state
+
     alert("✅ Order placed successfully!");
     navigate("/");
   };
@@ -213,12 +271,22 @@ const Checkout = () => {
             </div>
 
             {/* Place Order Button */}
-            <div className="text-right pt-4">
+            <div className="text-right pt-4 flex flex-col gap-3">
+              {/* Razorpay Online Payment Button */}
+              <button
+                type="button"
+                onClick={handleRazorpay}
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+              >
+                Pay ₹{total.toFixed(2)} Online
+              </button>
+
+              {/* Cash on Delivery */}
               <button
                 type="submit"
                 className="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition"
               >
-                Place Order
+                Place Order (COD)
               </button>
             </div>
           </form>
