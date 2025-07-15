@@ -2,12 +2,14 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
 import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
+import { useNavigate } from "react-router-dom";
 
 const Kids = () => {
   // State for view mode and selected subcategory
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
   const productRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleScrollToProducts = () => {
     productRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -235,6 +237,7 @@ const Kids = () => {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
+                onClick={() => navigate(`/products/${product.id}`)}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group border border-gray-100"
               >
                 <div className="relative">
@@ -337,12 +340,9 @@ const Kids = () => {
                     })}
                   </div>
 
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-full hover:from-blue-600 hover:to-green-600 transition-all duration-200 text-center inline-block"
-                  >
+                  <div className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white py-2 px-4 rounded-full hover:from-blue-600 hover:to-green-600 transition-all duration-200 text-center inline-block">
                     View Details
-                  </Link>
+                  </div>
                 </div>
               </div>
             ))}

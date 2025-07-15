@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Truck, Shield, RefreshCw } from "lucide-react";
-import { getFeaturedProducts } from "../data/products"; // Adjust the import path as necessary
+import { getFeaturedProducts } from "../data/products"; // Adjust the import
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const featuredProducts = getFeaturedProducts().slice(0, 4);
+  const navigate = useNavigate();
 
   const categories = [
     {
@@ -75,6 +77,7 @@ const Home = () => {
             {featuredProducts.map((product) => (
               <div
                 key={product.id}
+                onClick={() => navigate(`/products/${product.id}`)}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="aspect-square bg-gray-100 overflow-hidden">
@@ -94,12 +97,9 @@ const Home = () => {
                   <p className="text-2xl font-bold text-gray-900">
                     {product.price}
                   </p>
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="mt-4 w-full bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition-colors duration-200 inline-block text-center"
-                  >
+                  <div className="mt-4 w-full bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition-colors duration-200 inline-block text-center">
                     View Details
-                  </Link>
+                  </div>
                 </div>
               </div>
             ))}

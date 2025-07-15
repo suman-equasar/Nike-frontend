@@ -13,6 +13,7 @@ import {
   Plus,
   Minus,
 } from "lucide-react";
+import CartPopup from "../components/CartPopup";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -25,6 +26,8 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupItem, setPopupItem] = useState(null);
 
   // Get image for selected color
   const imageSrc =
@@ -44,23 +47,25 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     if (!selectedSize) return;
 
+    const addedItem = {
+      id: product.id,
+      name: product.name,
+      price: parseFloat(product.price.replace("$", "")),
+      image: imageSrc,
+      size: selectedSize,
+      color: selectedColor,
+    };
+
     dispatch({
       type: "ADD_TO_CART",
       payload: {
-        product: {
-          id: product.id,
-          name: product.name,
-          price: parseFloat(product.price.replace("$", "")),
-          image: imageSrc,
-          size: selectedSize,
-          color: selectedColor, // if applicable
-        },
+        product: addedItem,
         quantity,
       },
     });
 
-    // Optionally show feedback like toast or alert
-    alert("Added to cart!");
+    setPopupItem(addedItem);
+    setShowPopup(true);
   };
 
   return (
@@ -97,37 +102,6 @@ const ProductDetail = () => {
               ))}
             </div>
           </div> */}
-            {/* Color Swatches */}
-            <div className="flex space-x-4 mt-4">
-              {product.colors.map((color, idx) => (
-                <button
-                  key={color}
-                  onClick={() => setSelectedColor(color)}
-                  className={`w-10 h-10 rounded-full border-2 ${
-                    selectedColor === color ? "border-black" : "border-gray-300"
-                  }`}
-                  style={{
-                    backgroundColor:
-                      color.toLowerCase() === "white"
-                        ? "#fff"
-                        : color.toLowerCase() === "black"
-                        ? "#000"
-                        : color.toLowerCase() === "gray"
-                        ? "#888"
-                        : color.toLowerCase() === "red"
-                        ? "#f00"
-                        : color.toLowerCase() === "blue"
-                        ? "#00f"
-                        : color.toLowerCase() === "pink"
-                        ? "#f8c"
-                        : color.toLowerCase() === "green"
-                        ? "#0f0"
-                        : color.toLowerCase(),
-                  }}
-                  aria-label={color}
-                ></button>
-              ))}
-            </div>
           </div>
           {/* Product Details */}
           <div className="space-y-6">
@@ -169,6 +143,37 @@ const ProductDetail = () => {
 
             {/* Description */}
             <p className="text-gray-700 text-lg">{product.description}</p>
+            {/* Color Swatches */}
+            <div className="flex space-x-4 mt-4">
+              {product.colors.map((color, idx) => (
+                <button
+                  key={color}
+                  onClick={() => setSelectedColor(color)}
+                  className={`w-10 h-10 rounded-full border-2 ${
+                    selectedColor === color ? "border-black" : "border-gray-300"
+                  }`}
+                  style={{
+                    backgroundColor:
+                      color.toLowerCase() === "white"
+                        ? "#fff"
+                        : color.toLowerCase() === "black"
+                        ? "#000"
+                        : color.toLowerCase() === "gray"
+                        ? "#888"
+                        : color.toLowerCase() === "red"
+                        ? "#f00"
+                        : color.toLowerCase() === "blue"
+                        ? "#00f"
+                        : color.toLowerCase() === "pink"
+                        ? "#f8c"
+                        : color.toLowerCase() === "green"
+                        ? "#0f0"
+                        : color.toLowerCase(),
+                  }}
+                  aria-label={color}
+                ></button>
+              ))}
+            </div>
 
             {/* Size Selection */}
             <div>
@@ -288,6 +293,9 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      {showPopup && (
+        <CartPopup item={popupItem} onClose={() => setShowPopup(false)} />
+      )}
     </div>
   );
 };

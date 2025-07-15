@@ -2,11 +2,13 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
 import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 const Women = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
   const productRef = useRef(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleScrollToProducts = () => {
     productRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -188,6 +190,7 @@ const Women = () => {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
+                onClick={() => navigate(`/products/${product.id}`)}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group border border-gray-100"
               >
                 <div className="relative">
@@ -283,12 +286,9 @@ const Women = () => {
                     })}
                   </div>
 
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="w-full bg-pink-500 text-white py-2 px-4 rounded-full hover:bg-pink-600 transition-colors duration-200 text-center inline-block"
-                  >
+                  <div className="w-full bg-pink-500 text-white py-2 px-4 rounded-full hover:bg-pink-600 transition-colors duration-200 text-center inline-block">
                     View Details
-                  </Link>
+                  </div>
                 </div>
               </div>
             ))}

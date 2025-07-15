@@ -2,10 +2,12 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart, ArrowRight } from "lucide-react";
 import { getProductsByCategory } from "../data/products"; // Adjust the import path as necessary
+import { useNavigate } from "react-router-dom";
 
 function Men() {
   const [viewMode, setViewMode] = useState("grid");
   const [selectedSubcategory, setSelectedSubcategory] = useState("all");
+  const navigate = useNavigate();
 
   const menProducts = getProductsByCategory("men"); // ✅ Get men products dynamically
   const productRef = useRef(null);
@@ -186,6 +188,7 @@ function Men() {
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
+                onClick={() => navigate(`/products/${product.id}`)}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group border border-gray-100"
               >
                 <div className="relative">
@@ -281,12 +284,9 @@ function Men() {
                     })}
                   </div>
 
-                  <Link
-                    to={`/products/${product.id}`}
-                    className="w-full bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition-colors duration-200 text-center inline-block"
-                  >
+                  <div className="w-full bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition-colors duration-200 text-center inline-block">
                     View Details
-                  </Link>
+                  </div>
                 </div>
               </div>
             ))}

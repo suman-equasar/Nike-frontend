@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Filter, Grid, List, Star, Heart } from "lucide-react";
 import { products } from "../data/products"; // ✅ Use imported products
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const navigate = useNavigate();
 
   const categories = [
     { id: "all", name: "All Products" },
@@ -90,18 +92,18 @@ const Products = () => {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
+              onClick={() => navigate(`/products/${product.id}`)}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
             >
               <div className="relative">
-                <Link to={`/products/${product.id}`}>
-                  <div className="aspect-square bg-gray-100 overflow-hidden relative z-10">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                </Link>
+                <div className="aspect-square bg-gray-100 overflow-hidden relative z-10">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+
                 {product.sale && (
                   <div className="absolute top-2 left-2 bg-red-500 z-20 text-white text-xs font-bold px-2 py-1 rounded">
                     SALE
@@ -175,12 +177,9 @@ const Products = () => {
                   ))}
                 </div>
 
-                <Link
-                  to={`/products/${product.id}`}
-                  className="w-full bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition-colors duration-200 text-center inline-block"
-                >
+                <div className="w-full bg-black text-white py-2 px-4 rounded-full hover:bg-gray-800 transition-colors duration-200 text-center inline-block">
                   View Details
-                </Link>
+                </div>
               </div>
             </div>
           ))}

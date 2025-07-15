@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext"; // Assuming you have a CartContext for managing cart state
 
 const Checkout = () => {
-  const [cart, setCart] = useState({ items: [] });
+  const { state: cart, dispatch, clearCart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,13 +25,6 @@ const Checkout = () => {
   });
 
   const [errors, setErrors] = useState({});
-
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || {
-      items: [],
-    };
-    setCart(storedCart);
-  }, []);
 
   const total = cart.items.reduce(
     (acc, item) => acc + item.price * item.quantity,
@@ -102,12 +96,11 @@ const Checkout = () => {
       currency: "INR",
       name: "Demo Store",
       description: "Test Transaction",
-      handler: function (response) {
+      handler: (response) => {
         alert(
-          "✅ Payment successful!\nPayment ID: " + response.razorpay_payment_id
+          "✅ Payment successful! Payment ID: " + response.razorpay_payment_id
         );
-        localStorage.removeItem("cart");
-        setCart({ items: [] }); // ✅ update React state too
+        clearCart(); // Clear cart after successful payment
         navigate("/");
       },
       prefill: {
@@ -139,12 +132,9 @@ const Checkout = () => {
       alert("⚠️ Please fix the form errors before proceeding.");
       return;
     }
-
-    localStorage.removeItem("cart");
-    setCart({ items: [] }); // ✅ also clear state
-
+    clearCart(); // Clear cart after placing order
+    navigate("/"); // go home
     alert("✅ Order placed successfully!");
-    navigate("/");
   };
 
   return (
