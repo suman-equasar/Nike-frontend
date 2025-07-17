@@ -55,7 +55,9 @@ const Navbar = () => {
                 </span>
               )}
             </Link>
-            <User className="w-5 h-5 text-gray-600 hover:text-black cursor-pointer transition-colors" />
+            <Link to="/login">
+              <User className="w-5 h-5 text-gray-600 hover:text-black cursor-pointer transition-colors" />
+            </Link>
 
             {/* Mobile menu button */}
             <button

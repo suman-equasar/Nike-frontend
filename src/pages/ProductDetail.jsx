@@ -25,7 +25,7 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [quantity, setQuantity] = useState(1);
-  const [selectedImage, setSelectedImage] = useState(0);
+
   const [showPopup, setShowPopup] = useState(false);
   const [popupItem, setPopupItem] = useState(null);
 
@@ -81,27 +81,6 @@ const ProductDetail = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* <div className="flex space-x-4">
-              {product.images.map((image, index) => (
-                <button
-                  key={index}
-                  onClick={() => setSelectedImage(index)}
-                  className={`w-20 h-20 bg-gray-100 rounded-lg overflow-hidden border-2 ${
-                    selectedImage === index
-                      ? "border-black"
-                      : "border-transparent"
-                  }`}
-                >
-                  <img
-                    src={image}
-                    alt={`${product.name} ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
-          </div> */}
           </div>
           {/* Product Details */}
           <div className="space-y-6">

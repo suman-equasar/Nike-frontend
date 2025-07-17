@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext"; // Assuming you have a CartContext for managing cart state
 
 const Checkout = () => {
-  const { state: cart, dispatch, clearCart } = useCart();
+  const { state: cart, clearCart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,10 +26,13 @@ const Checkout = () => {
 
   const [errors, setErrors] = useState({});
 
-  const total = cart.items.reduce(
+  const subtotal = cart.items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+  const shipping = subtotal > 50 ? 0 : 10;
+  const tax = subtotal * 0.08;
+  const total = subtotal + shipping + tax;
 
   // ✅ REGEX validation rules
   const regexRules = {
@@ -164,9 +167,23 @@ const Checkout = () => {
               ))}
             </ul>
           )}
-          <div className="border-t pt-4 mt-4 flex justify-between font-bold text-lg">
-            <span>Total:</span>
-            <span>${total.toFixed(2)}</span>
+          <div className="border-t pt-4 mt-4 space-y-2 text-sm">
+            <div className="flex justify-between">
+              <span>Subtotal:</span>
+              <span>${subtotal.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Shipping:</span>
+              <span>{shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Tax (8%):</span>
+              <span>${tax.toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between font-bold text-lg border-t pt-3">
+              <span>Total:</span>
+              <span>${total.toFixed(2)}</span>
+            </div>
           </div>
         </div>
 
