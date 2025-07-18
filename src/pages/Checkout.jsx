@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext"; // Assuming you have a CartContext for managing cart state
+import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+// Assuming you have a CartContext for managing cart state
 
 const Checkout = () => {
   const { state: cart, clearCart } = useCart();

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // adjust path if needed
+import { useNavigate } from "react-router-dom";
+
 import {
   Eye,
   EyeOff,
@@ -22,10 +25,15 @@ const Signup = () => {
     dateOfBirth: "",
     gender: "",
   });
+  const { signup } = useAuth(); // access signup function
+  const navigate = useNavigate(); // to redirect after signup
+  const [authError, setAuthError] = useState(""); // for showing signup error
+
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [subscribeNewsletter, setSubscribeNewsletter] = useState(true);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,11 +43,57 @@ const Signup = () => {
     }));
   };
 
+  const validators = {
+    firstName: (value) =>
+      /^[A-Za-z]{2,}$/.test(value) ||
+      "First name must be at least 2 characters.",
+    lastName: (value) =>
+      /^[A-Za-z]{2,}$/.test(value) ||
+      "Last name must be at least 2 characters.",
+    email: (value) =>
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) ||
+      "Enter a valid email with domain name (e.g., user@example.com).",
+    phone: (value) =>
+      /^[6-9]\d{9}$/.test(value) ||
+      "Enter a valid 10-digit Indian phone number.",
+    password: (value) =>
+      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/.test(value) ||
+      "Password must be at least 6 characters and contain a number.",
+    confirmPassword: (value, formData) =>
+      value === formData.password || "Passwords do not match.",
+  };
+  const validateForm = () => {
+    const newErrors = {};
+
+    Object.entries(formData).forEach(([field, value]) => {
+      if (validators[field]) {
+        const isValid = validators[field](value, formData);
+        if (isValid !== true) newErrors[field] = isValid;
+      }
+    });
+
+    if (!agreeToTerms) {
+      newErrors.terms = "You must agree to the terms and conditions.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Frontend only - no actual registration
-    console.log("Signup attempt:", formData);
-    alert("Signup form submitted!");
+    setAuthError(""); // reset any previous error
+
+    if (!validateForm()) return;
+
+    const result = signup(formData); // <- call AuthContext signup
+
+    if (result.success) {
+      alert("Signup successful!");
+      navigate("/login");
+    } else {
+      setAuthError(result.message); // show "User already exists"
+    }
   };
 
   return (
@@ -88,6 +142,11 @@ const Signup = () => {
                     className="appearance-none block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200"
                     placeholder="First name"
                   />
+                  {errors.firstName && (
+                    <p className="text-sm text-red-500 mt-1">
+                      {errors.firstName}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -109,6 +168,11 @@ const Signup = () => {
                     className="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200"
                     placeholder="Last name"
                   />
+                  {errors.lastName && (
+                    <p className="text-sm text-red-500 mt-1">
+                      {errors.lastName}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -136,6 +200,9 @@ const Signup = () => {
                   className="appearance-none block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200"
                   placeholder="Enter your email"
                 />
+                {errors.email && (
+                  <p className="text-sm text-red-500 mt-1">{errors.email}</p>
+                )}
               </div>
             </div>
 
@@ -160,6 +227,9 @@ const Signup = () => {
                   className="appearance-none block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200"
                   placeholder="Enter your phone number"
                 />
+                {errors.phone && (
+                  <p className="text-sm text-red-500 mt-1">{errors.phone}</p>
+                )}
               </div>
             </div>
 
@@ -186,6 +256,7 @@ const Signup = () => {
                     className="appearance-none block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent transition-all duration-200"
                     placeholder="Create a password"
                   />
+
                   <button
                     type="button"
                     className="absolute inset-y-0 right-0 pr-3 flex items-center"
@@ -197,6 +268,11 @@ const Signup = () => {
                       <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
                     )}
                   </button>
+                  {errors.password && (
+                    <p className="text-sm text-red-500 mt-1">
+                      {errors.password}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -232,6 +308,11 @@ const Signup = () => {
                       <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition-colors" />
                     )}
                   </button>
+                  {errors.confirmPassword && (
+                    <p className="text-sm text-red-500 mt-1">
+                      {errors.confirmPassword}
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -346,6 +427,10 @@ const Signup = () => {
               </button>
             </div>
           </form>
+          {authError && (
+            <p className="text-red-600 text-sm text-center">{authError}</p>
+          )}
+
           {/* Divider */}
           <div className="mt-6">
             <div className="relative">
